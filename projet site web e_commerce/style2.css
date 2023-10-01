@@ -1,0 +1,276 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan',sans-serif;
+
+}
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: #E3E6F3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 1;
+    position: sticky; /*La barre menu reste afficher meme si on navigue du haut en bas de la page web*/
+    top: 0;
+    left: 0;
+}
+
+/*Pour alligner les éléments de la barre menu sur une ligne*/
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*style des elements de le barre menu*/
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+
+
+/*barre de recherche*/
+
+/*Style formuuuuuulaiire barre de recherche*/
+.search-box {
+    position: relative;
+    display: inline-block;
+    
+  }
+  
+  .search-box input[type="search"] {
+    width: 300px;
+    padding: 10px 10px 10px 40px;
+    font-size: 16px;
+    border: 1px #555 solid;
+    border-radius: 20px;
+    background-color: #fff;
+    outline: none;
+  }
+  
+  .search-box button[type="submit"] {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    
+    transform: translateY(-50%);
+
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+  }
+  
+  .search-box button[type="submit"]:hover {
+    cursor: pointer;
+  }
+  
+  .fa-search {
+    font-size: 20px;
+    color: #555;
+    margin-left: -25px;
+  }
+
+
+/*Supprimer la ligne de surlignement*/
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color : #1a1a1a;
+    transition:0.3s ease ;
+}
+
+/*Decoration du barre menu*/
+#navbar li a:hover,
+#navbar li a.active{  /* Home est active de la barre menu*/
+    color: #088178;
+    
+}
+
+
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background:#088178 ;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+
+}
+
+/**/
+.hero{
+    background: #c9cbc0;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+.hero h1{
+    text-align: center;
+    padding-top: 50px;
+    font-size: 40px;
+    color: #088178;
+}
+
+.slide-row{
+    display: flex;
+    width: 3200px;
+    transition: 0.5s;
+
+}
+
+.slide-col{
+    width: 800px;
+    height: 400px;
+    position: relative;
+}
+.user-img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+
+}
+.user-img img{
+    height: 100%;
+    border-radius: 10px;
+}
+.user-text{
+    background: #2d3a59;
+    width: 500px;
+    height: 270px; ;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    color: #d3d4d6;
+    padding: 45px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.user-text p{
+    font-size: 18px;
+    line-height: 24px;
+}
+.user-text h3{
+    margin: 35px 0 5px;
+    color: #fff;
+}
+
+.container{
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding-top: 5%;
+
+}
+.indicator{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -50px;
+
+}
+.btn{
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin: 4px;
+    border-radius: 15px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.active{
+    width: 45px;
+}
+.testimonial{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 2%;
+    margin-top: 10%;
+}
+
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+
+footer .logo {
+    margin-bottom: 30px;
+
+}
+
+footer h4{
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+footer p{
+    font-size: 13px;
+    margin: 0 0 8px 0;
+}
+
+footer a{
+    font-size: 13px;
+    text-decoration: none;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+footer .follow  {
+    margin-top: 20px;
+
+}
+footer .follow  i{
+    color: #465b52;
+    padding-right: 4px;
+    cursor: pointer;
+
+}
+footer .install .row img{
+    border: 1px solid #088178;
+    border-radius: 6px;
+}
+
+footer .install img{
+    margin: 10px 0 15px 0;
+}
+
+footer .follow i:hover,
+footer a:hover{
+    color: #088178;
+}
+
+footer .copyright{
+    width: 100%;
+    text-align: center;
+}
