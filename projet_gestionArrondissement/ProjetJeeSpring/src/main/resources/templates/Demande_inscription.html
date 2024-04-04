@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/DemandeDocuments/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/DemandeDocuments/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/DemandeDocuments/css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="css/DemandeDocuments/css/style.css">
+
+
+
+<!-- Vendor CSS Files -->
+<link th:href="@{css/tableaudebord/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/quill/quill.snow.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/quill/quill.bubble.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/remixicon/remixicon.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/simple-datatables/style.css}" rel="stylesheet">
+
+
+  <!-- Template Main CSS File -->
+<link th:href="@{css/tableaudebord/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+<link th:href="@{css/tableaudebord/css/style.css}" rel="stylesheet">
+
+
+    <title>Liste des demandes de Signature des documents personels</title>
+ 
+<style>
+
+
+     body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Gris froid */
+            color: #333;
+        }
+
+        header {
+            background-color: #B1D8B7; /* Gris plus foncé */
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+      
+
+       
+
+        form {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        label {
+            margin-right: 10px;
+            color: #B1D8B7; /* Gris plus foncé */
+        }
+
+        select, button {
+            background-color: #fff; /* Blanc */
+            color: #333;
+            padding: 8px 12px;
+            border: 1px solid #B1D8B7; /* Gris plus clair */
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button {
+            margin-left: 10px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 40px;
+             margin-left: 70px;
+        }
+
+        th, td {
+            border: 1px solid #B1D8B7;
+            padding: 8px;
+            text-align: right;
+        }
+
+        th {
+            background-color: #B1D4E0; /* Gris plus foncé */
+            color: white;
+        }
+
+        button.accept {
+            background-color: #4CAF50; /* Vert */
+            color: white;
+        }
+
+        button.reject {
+            background-color: #f44336; /* Rouge */
+            color: white;
+        }
+
+        
+        .return-button{
+         background-color: #B1D8B7; /* Gris froid */
+        
+        }
+	h1 {
+  font-size: 27px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  font-weight: bold;
+}
+    .filter-container {
+        margin-bottom: 20px;
+        text-align: right;
+    }
+
+    #statusFilter {
+        padding: 8px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-left: 10px;
+    }
+</style>
+  </head>
+  <body>
+  
+ 
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index" class="logo d-flex align-items-center">
+        
+        <span class="d-none d-lg-block">Idaraty</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+
+
+<nav class="header-nav ms-auto">
+    
+    
+    <!-- Image de déconnexion -->
+    <a th:href="@{/Login}" title="Déconnexion">
+        <img th:src="@{/img/logout.png}" alt="Déconnexion">
+                
+
+    </a>
+</nav><!-- End Icons Navigation -->
+
+
+
+
+  </header><!-- End Header -->
+
+
+   
+
+  
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/TableauDeBordFonctionnaire">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Demandes de documents</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="DemandeDocuments">
+              <i class="bi bi-circle"></i><span>Traitement des demandes</span>
+            </a>
+          </li>
+         
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Signature de documents</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="DemandeSignatures">
+              <i class="bi bi-circle"></i><span>Documents à signés</span>
+            </a>
+          </li>
+          <li>
+            <a href="DemandeSignaturesConformes">
+              <i class="bi bi-circle"></i><span>Documents conformes</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Réclamations</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="reclamations">
+              <i class="bi bi-circle"></i><span>Liste des réclamations</span>
+            </a>
+          </li>
+        </ul>
+      </li>  <!-- nessrine-->
+     
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem"></i><span>Citoyens</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="listdesCitoyen">
+              <i class="bi bi-circle"></i><span>Liste des citoyens</span>
+            </a>
+          </li>
+          <li>
+            <a th:href="@{/Demande_inscription}">
+              <i class="bi bi-circle"></i><span>Liste des demandes d'inscription</span>
+            </a>
+          </li>
+          <li>
+            <a th:href="@{/demandeModification}">
+              <i class="bi bi-circle"></i><span>Liste des demandes de modifications</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Icons Nav -->
+      
+      <!-- nessrine --><!-- End Tables Nav -->
+
+      <li class="nav-heading">Profil</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="Profil">
+          <i class="bi bi-person"></i>
+          <span>Modifier</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+     
+</li>
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+<!-- -->
+
+ 
+
+ <div class="content">
+  <div class="container">
+   
+   
+   
+     
+    <h1>Les demandes d'inscriptions</h1>
+    <form th:action="@{/Demande_inscription}" method="get"> 
+        <label for="searchOption">Recherche :</label>
+        <select id="searchOption" name="etat">
+           
+            <option value="en cours de traitement">En cours de traitement</option>
+            <option value="refusée">Refusée</option>
+            <option value="acceptée">Acceptée</option>
+        </select>
+        
+        <button type="submit">Rechercher</button>
+    </form>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>CIN</th>
+                <th>Nom Complet</th>
+                
+                <th>Email</th>
+               
+                <th>Téléphone</th>
+              
+                <th>État</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Boucle sur les demandes d'inscription -->
+            <tr th:each="demande_insc : ${demande_insc}">
+                <td th:text="${demande_insc.cin}"></td>
+                <td th:text="${demande_insc.nom_complet}"></td>
+                
+                <td th:text="${demande_insc.email}"></td>
+                
+                <td th:text="${demande_insc.tel}"></td>
+               
+                <td th:text="${demande_insc.etat}"></td>
+                <td>
+                    <!-- Formulaire pour accepter l'inscription -->
+                    <form th:action="@{/inscription/accepter}" method="post">
+                        <input type="hidden" name="demandeId" th:value="${demande_insc.id}" />
+                        <button type="submit" name="action" value="0" class="reject">Refuser</button>
+                        <button type="submit" name="action" value="1" class="accept">Accepter</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+   
+     </div>
+
+ </div>
+
+
+<!-- Bouton de retour -->
+
+<!-- -->
+  
+  
+   <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+	  
+    <div class="copyright">
+      &copy; Copyright <strong><span>Idaraty</span></strong>. Tous droits réservés
+    </div>
+    <div class="credits">
+      
+	<a href="#">2023/2024</a> 
+  </footer><!-- End Footer -->
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+
+<!-- add -->
+<script th:inline="javascript">
+    function filterTable() {
+        var statusFilter = document.getElementById('statusFilter').value;
+
+        var rows = document.querySelectorAll('.flex-table tbody tr');
+        for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var etatCell = row.cells[3].textContent; // Assuming the "etat" is in the fourth column (index 3)
+
+            if (statusFilter === 'Tous' || etatCell === statusFilter) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    }
+</script>
+<!--add-->
+
+<!-- Vendor JS Files -->
+<script th:src="@{/css/tableaudebord/vendor/apexcharts/apexcharts.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/chart.js/chart.umd.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/echarts/echarts.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/quill/quill.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/simple-datatables/simple-datatables.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/tinymce/tinymce.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/php-email-form/validate.js}"></script>
+
+<!-- Template Main JS File -->
+<script th:src="@{/css/tableaudebord/js/main.js}"></script>  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Refus</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4; /* Gris clair */
+            color: #333; /* Gris plus foncé */
+            
+            background-image: url('https://www.ribbet.com/graphics/landing/apps/bg.jpg');
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2F5061; /* Bleu */
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffff; /* Blanc */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 23cm;
+            height:10cm;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2F5061; /* Bleu */
+        }
+        header {
+            background-color: #555; /* Gris plus foncé */
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        textarea {
+            width: 23cm; /* Largeur de 20cm */
+            height:10cm;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #2F5061; /* Gris plus clair */
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #2F5061; /* Vert */
+            color: #fff; /* Blanc */
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #C0C0C0; /* Vert plus foncé au survol */
+        }
+
+        p {
+            color: #2F5061; /* Gris plus foncé */
+            font-style: italic;
+            margin-top: 0;
+        }
+        footer {
+            background-color: #555; /* Gris plus foncé */
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+ 
+<body>
+
+    
+
+    <form action="/inscription/traiterRefus" method="post">
+        <input type="hidden" name="demandeId" th:value="${demandeInscription.id}" />
+
+        <label for="motifRefus">Merci de Saisir le motif de refuse :</label>
+        <textarea id="motifRefus" name="motifRefus" rows="10" required></textarea>
+
+        <br/>
+
+        <button type="submit">Soumettre</button>
+
+       
+    </form>
+ <footer>
+        
+        <p>© 2023 Votre Société. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

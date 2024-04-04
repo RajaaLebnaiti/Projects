@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+
+    <title>Details de la Demande de Signature conforme</title>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+             background-image: url('/img/vecteezy_abstract-colorful-line-wave-on-black-background-use-for_3705356.jpg'); 
+    		background-size: cover; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #003B73;
+        }
+
+        .details-container {
+			margin-top:10%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 18px -1px rgba(0, 0, 0, 0.39);
+          margin-bottom:10%;
+            width: 60%;
+        }
+
+        .right-details {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .left-details {
+            color: #050A30;
+            flex: 1;
+            padding: 20px;
+        }
+
+        .left-details h2{
+            border-bottom: 2px solid #003B73;
+            padding-bottom: 10px;
+        }
+
+        .document-container, .signature-container {
+            margin-left: 20px;
+            text-align: center;
+            
+        }
+
+        .document-container {
+            flex: 2; /* Plus grand que signature-container */
+        }
+
+        .document-container h3 {
+            color: #A92420;
+			padding-bottom: 10px;
+			flex: 1;
+            padding: 20px;
+            font-size: 26px;
+
+
+        }
+        .document-container p {
+            color: black;;
+            
+            font-size: 20px;
+
+
+        }
+        .signature-container h3 {
+            color: #050A30;
+            flex: 1;
+            padding: 20px;
+			font-size: 26px;
+			padding-bottom: 10px;
+
+
+        }
+		#document-image, #signature-image {
+		    border-radius: 2px solid #050A30;
+		}
+
+
+        .buttons-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+	
+        .button {
+            border: none;
+            font-size: 1rem; /* Légèrement agrandie */
+            text-transform: uppercase;
+            border: 2px solid #fff;
+            border-radius: 20px;
+            padding: 0.7rem 1.5rem; /* Agrandie */
+            font-weight: 900;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .button.button-sign {
+            background: #116530;
+            color: #fff;
+            border-color: #116530;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .button.button-sign:hover {
+            background: #fff;
+            border-color: #116530;
+            color: #116530;
+        }
+
+        .button.button-refuse {
+            background: #ff4757; /* Rouge pour le refus */
+            border-color: #ff4757;
+            color: #fff;
+            transition: all 0.5s ease-in-out;
+            
+        }
+
+        .button.button-refuse:hover {
+            background: #fff;
+            border-color: #ff4757;
+            color: #ff4757;
+        }
+
+        .button.button-return {
+            background: #189AB4;
+            border-color: #189AB4;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .button.button-return:hover {
+            background: #fff;
+            color: #189AB4;
+            border-color: #189AB4;
+        }
+.signature-container #signature-image{
+	background: #fff;
+	margin-top: 30%;
+}
+        #reason-container {
+            display: none;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        #result-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        
+        #reason-container {
+    display: none;
+    background-color: #F8F8F8; /* Couleur de fond */
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #E0E0E0; /* Bordure */
+    border-radius: 8px; /* Coins arrondis */
+}
+
+#reason-container h3 {
+    color: #333; /* Couleur du texte */
+    font-size: 18px; /* Taille de la police */
+    margin-bottom: 10px;
+}
+
+#reason-form {
+    margin-top: 10px;
+}
+
+#raison {
+    width: 100%; /* Remplir la largeur disponible */
+    padding: 10px;
+    border: 1px solid #E0E0E0; /* Bordure de la zone de texte */
+    border-radius: 4px; /* Coins arrondis */
+}
+
+#reason-form input[type="submit"] {
+    background-color: #4CAF50; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#reason-form input[type="submit"]:hover {
+    background-color: #45a049; /* Changement de couleur au survol */
+}
+
+    </style>
+
+</head>
+<body>
+	
+<!-- maaain  start-->	
+
+	<!-- les documents start -->
+    <div class="details-container">
+        
+      <div class="right-details" style="display: flex; justify-content: flex-end;">
+		  <div class="left-details">
+           <h2>Détails de la Demande de Signature Conforme</h2>
+			<h3>Nom Complet du Citoyen : </h3><p><span th:text="${demande.citoyen.nomComplet}"></span></p>
+                <h3>Motif : </h3><p><span th:text="${demande.motif}"></span></p>
+                <h3>État : </h3><p><span th:text="${demande.etat}"></span></p>
+                <h3>Raison : </h3><p><span th:text="${demande.raison}"></span></p></div>
+        
+    <div class="document-container">
+        <h3>Document à signer</h3>
+          <img src="/img/2337.png" alt="client" />
+    </div>
+  </div>
+	
+            <div class="buttons-container">
+                <a th:href="@{/ListeDemandesCopie}" class="button button-return">Retour</a>
+                 <a th:href="@{/ListeDemandesCopie}" class="button button-return" onclick="window.print()">Imprimer</a>
+            </div>
+        
+   
+
+	<!-- les documents End -->
+
+</div>
+<!-- maaain  end-->	
+
+</body>
+</html>

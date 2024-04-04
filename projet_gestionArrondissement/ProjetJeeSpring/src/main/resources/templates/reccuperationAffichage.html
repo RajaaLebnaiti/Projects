@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affichage Fonctionnaire</title>
+    <link rel="stylesheet" th:href="@{/reccuperationAffichage.css}" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            
+            background-image: url('https://dnewpydm90vfx.cloudfront.net/wp-content/uploads/2020/03/Privileged-Access-Management.jpg');
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .container {
+            width: 90%; /* Ajustez la largeur du formulaire selon vos besoins */
+            max-width: 600px;
+            background-color: #C3E0E5;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .data-item {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            color: #007BFF;
+        }
+
+        span {
+            display: block;
+            margin-top: 5px;
+            font-size: 18px;
+            color: #343a40;
+        }
+
+        .error {
+            color: #FF0000;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vos données :</h1>
+
+        <div class="data-item">
+            <label for="nomComplet">Adresse email :</label>
+            <span th:text="${fonctionnaire.email}"></span>
+        </div>
+<h3>Veuillez vérifier votre boite mail.</h3>
+        <!-- Affiche le message d'erreur s'il est présent dans le modèle -->
+        <div th:if="${error}" class="error" th:text="${error}"></div>
+    </div>
+</body>
+</html>

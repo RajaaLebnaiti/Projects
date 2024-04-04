@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+
+<!-- Vendor CSS Files -->
+<link th:href="@{css/tableaudebord/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/quill/quill.snow.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/quill/quill.bubble.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/remixicon/remixicon.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/simple-datatables/style.css}" rel="stylesheet">
+
+
+  <!-- Template Main CSS File -->
+<link th:href="@{css/tableaudebord/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+<link th:href="@{css/tableaudebord/css/style.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+ 
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index" class="logo d-flex align-items-center">
+        
+        <span class="d-none d-lg-block">Idaraty</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+
+
+<nav class="header-nav ms-auto">
+    
+    
+    <!-- Image de déconnexion -->
+    <a th:href="@{/Login}" title="Déconnexion">
+        <img th:src="@{/img/logout.png}" alt="Déconnexion">
+                
+
+    </a>
+</nav><!-- End Icons Navigation -->
+
+
+
+
+  </header><!-- End Header -->
+
+
+   
+
+  
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/TableauDeBordFonctionnaire">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Demandes de documents</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="DemandeDocuments">
+              <i class="bi bi-circle"></i><span>Traitement des demandes</span>
+            </a>
+          </li>
+         
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Signature de documents</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="DemandeSignature">
+              <i class="bi bi-circle"></i><span>Documents à signés</span>
+            </a>
+          </li>
+          <li>
+            <a href="DemandeSignaturesConformes">
+              <i class="bi bi-circle"></i><span>Documents conformes</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Réclamations</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="reclamations">
+              <i class="bi bi-circle"></i><span>Liste des réclamations</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+      
+      
+      <!-- nessrine-->
+     
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem"></i><span>Citoyens</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="listdesCitoyen">
+              <i class="bi bi-circle"></i><span>Liste des citoyens</span>
+            </a>
+          </li>
+          <li>
+            <a th:href="@{/Demande_inscription}">
+              <i class="bi bi-circle"></i><span>Liste des demandes d'inscription</span>
+            </a>
+          </li>
+          <li>
+            <a th:href="@{/demandeModification}">
+              <i class="bi bi-circle"></i><span>Liste des demandes de modifications</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Icons Nav -->
+      
+      <!-- nessrine -->
+
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="Profil">
+          <i class="bi bi-person"></i>
+          <span>Modifier Profil</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+     
+
+
+  </aside><!-- End Sidebar-->
+
+ <div class="content">    
+    <div class="container">
+      <h1 class="mb-5">Liste des réclamations des citoyens</h1>
+
+      <div class="table-responsive">
+
+        <table class="table table-striped custom-table">
+          <thead>
+            <tr>
+              
+              <th scope="col">Id</th>
+              <th scope="col">Nom Complet</th>
+              <th scope="col">Demandes</th>
+              <th scope="col">Etat</th>
+              <th scope="col">Raison</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>            
+
+
+<!-- Utilisez Thymeleaf pour parcourir la liste des demandes de documents et afficher chaque demande -->
+<tr th:each="demande : ${DemandeDocuments}">
+    <!-- Utilisez Thymeleaf pour accéder aux propriétés du citoyen associé à la demande -->
+    <td th:text="${demande.id}">Id</td>
+    <td th:text="${demande.citoyen.nomComplet}">Nom Complet</td>
+    <td th:text="${demande.motif}">Motif</td>
+    <td th:text="${demande.etat}">État</td>
+    <td th:text="${demande.raison}">Raison</td>
+    <!-- Ajoutez le lien vers les détails de la demande de documents -->
+    <td><a th:href="@{/detailsDemandeDocs/{id}(id=${demande.id})}" class="more">Details</a></td>
+</tr>
+
+
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+  </div>
+    <!-- end tableau des demandes de documents-->
+ 
+
+  
+  
+   <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+	  
+    <div class="copyright">
+      &copy; Copyright <strong><span>Idaraty</span></strong>. Tous droits réservés
+    </div>
+    <div class="credits">
+      
+	<a href="#">2023/2024</a> 
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script th:src="@{/css/tableaudebord/vendor/apexcharts/apexcharts.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/chart.js/chart.umd.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/echarts/echarts.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/quill/quill.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/simple-datatables/simple-datatables.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/tinymce/tinymce.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/php-email-form/validate.js}"></script>
+
+<!-- Template Main JS File -->
+<script th:src="@{/css/tableaudebord/js/main.js}"></script>
+  </body>
+</html>

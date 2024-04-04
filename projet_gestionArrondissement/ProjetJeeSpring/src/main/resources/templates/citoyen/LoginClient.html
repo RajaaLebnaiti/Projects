@@ -1,0 +1,111 @@
+
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/Login/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/Login/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/Login/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Login/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<title>Login</title>
+<style>
+	/* Ajoutez ces styles dans votre fichier CSS */
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 0.5;
+}
+
+.close:hover {
+    color: #000;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+	.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+</style>
+<body>
+<div class="d-lg-flex half">
+	<div class="bg order-1 order-md-2" style="background-image: url('css/Login/images/businessman-logging-his-tablet.jpg');"></div>
+	<div class="contents order-2 order-md-1">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-md-7">
+				<!-- Votre template Thymeleaf -->
+
+                       <!-- Votre template Thymeleaf -->
+
+<!-- Votre template Thymeleaf -->
+
+<!-- Ajoutez ceci pour afficher le message d'erreur s'il est présent -->
+<div th:if="${not #strings.isEmpty(erreurLogin)}" class="alert alert-danger alert-dismissible fade show">
+    <span th:text="${erreurLogin}"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<!-- Le reste de votre formulaire de connexion -->
+
+
+<!-- Le reste de votre formulaire de connexion -->
+
+
+<!-- Le reste de votre formulaire de connexion -->
+
+				<form th:action="@{/loginCitoyen}" method="post">
+					<div class="form-group first">
+					<label for="username">Nom d'utilisateur</label>
+					<input type="text" class="form-control" placeholder="Nom utilisateur" id="username" name="email" required>
+					</div>
+					<div class="form-group last mb-3">
+					<label for="password">Mot de passe</label>
+					<input type="password" class="form-control" placeholder="Mot de passe" id="password" name="password" required>
+					</div>
+					
+					<div class="d-flex mb-5 align-items-center">
+					<label class="control control--checkbox mb-0"><span class="caption">Se souvenir de moi</span>
+					<input type="checkbox" checked="checked" />
+					<div class="control__indicator"></div>
+					</label>
+					<span class="ml-auto"><a href="#" class="forgot-pass">Nom d'utilisateur ou mot de passe oublié</a></span>
+					
+					</div>
+					
+					<span class="ml-auto"><a href="Inscription" >S'inscrire</a></span>
+					<input type="submit" value="Se connecter" class="btn btn-block btn-primary">
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

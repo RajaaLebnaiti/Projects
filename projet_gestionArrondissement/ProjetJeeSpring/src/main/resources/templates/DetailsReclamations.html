@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 100%;
+            margin-right: 10%;
+            margin-left: 10%;
+            overflow: hidden;
+        }
+
+        .titre h2 {
+            color: #145DA0;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .message-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .message img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 1px solid black;
+        }
+
+        .message-bubble {
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 70%;
+            word-wrap: break-word;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .user1 {
+            align-self: flex-start;
+        }
+
+        .user1 .message-bubble {
+            background-color: #3498db;
+            color: #fff;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        .user2 {
+            align-self: flex-end;
+            margin-right: 10px;
+        }
+
+        .user2 .message-bubble {
+            background-color: #94C973;
+            color: #fff;
+            margin-left: 20px;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 60%;
+            height: 30px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            font-size: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        button, a {
+            background-color: #0C2D48;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 26px;
+        }
+
+        button:hover, a:hover {
+            background-color: #2E8BC0;
+        }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="chat-container">
+        <!-- Utilisez Thymeleaf pour afficher les détails de la réclamation -->
+        <div class="titre">
+            <h2>Liste des réclamations</h2>
+            
+            <hr>
+            <hr>
+        </div>
+        <div class="message-container">
+            <div class="message user1">
+                <img th:src="@{/img/profile.png}" />
+                <div class="message-bubble">
+                    <p th:text="${reclamation.message}"></p>
+                </div>
+            </div>
+
+            <div class="message user2">
+                <img th:src="@{/img/man.png}" />
+                <div class="message-bubble">
+                    <p th:text="${reclamation.reponse}"></p>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <!-- Formulaire de réponse -->
+        <form th:action="@{/repondreReclamation}" method="post">
+            <input type="hidden" name="reclamationId" th:value="${reclamation.id}" />
+            <textarea name="reponse" placeholder="Répondre à la réclamation..." required></textarea>
+            <div class="button-container">
+                <button type="submit">Répondre</button>
+                <a href="/reclamations">Retour</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

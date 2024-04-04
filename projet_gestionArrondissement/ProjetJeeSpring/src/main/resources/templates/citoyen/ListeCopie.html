@@ -1,0 +1,232 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+
+<!-- Vendor CSS Files -->
+<link th:href="@{css/tableaudebord/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/quill/quill.snow.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/quill/quill.bubble.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/remixicon/remixicon.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/simple-datatables/style.css}" rel="stylesheet">
+
+
+  <!-- Template Main CSS File -->
+<link th:href="@{css/tableaudebord/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+<link th:href="@{css/tableaudebord/css/style.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index" class="logo d-flex align-items-center">
+        
+        <span class="d-none d-lg-block">Idaraty</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+
+<nav class="header-nav ms-auto">
+    
+    
+    <!-- Image de déconnexion -->
+    <a th:href="@{/Login}" title="Déconnexion">
+        <img th:src="@{/img/switch.png}" alt="Déconnexion">
+                
+
+    </a>
+</nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+
+   
+
+  
+ <!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar" >
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="TableauDeBordCitoyen">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+</li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Egalisation des documents </span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="DemandeSignature">
+              <i class="bi bi-circle"></i><span>Liste des demande signatures</span>
+            </a>
+          </li>
+        </ul>
+          <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="EffectuationSignature">
+              <i class="bi bi-circle"></i><span>Effectuer demande signature</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+          <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-grid"></i><span>Copie conforme des documents </span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="ListeDemandesCopie">
+              <i class="bi bi-circle"></i><span>Liste des demandes</span>
+            </a>
+          </li>
+        </ul>
+          <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="DemandeCopie">
+              <i class="bi bi-circle"></i><span>Demander une copie conforme</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Réclamations</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+		 <li>
+            <a href="Reclamation">
+              <i class="bi bi-circle"></i><span>Réclamer</span>
+            </a>
+          </li>
+          <li>
+            <a href="AffichReclamations">
+              <i class="bi bi-circle"></i><span>Liste des réclamations</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+      <li class="nav-heading">Profil</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="profilCitoyen">
+          <i class="bi bi-person"></i>
+          <span>Modifier</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+    </ul>
+
+  </aside><!-- End Sidebar-->
+        
+ <main id="main" class="main ">
+    <section class="section dashboard ">
+
+     <!-- start tableau des demandes -->
+ <div class="content">
+  <div class="container">
+    <h1>Liste des demandes de documents conformes</h1>
+<br>
+<!--  add -->
+ 
+    <div>
+        <label for="statusFilter">Filtrer :</label>
+        <select id="statusFilter" onchange="filterTable()">
+            <option value="Tous">Tous</option>
+            <option value="en cours de traitement">En cours de traitement</option>
+            <option value="Signé">Signé</option>
+            <option value="Rejeté">Rejeté</option>
+        </select>
+    </div>
+<!-- add -->
+<br>
+
+    <div class="table-responsive">
+      <table class="table table-striped custom-table flex-table">
+          <thead>
+            <tr>
+              
+            
+              <th scope="col">Date</th>
+              <th scope="col">titre</th>
+              <th scope="col">Etat</th>
+              <th scope="col">Raison</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+         <tbody>            
+     <tr th:each="demande : ${demandesDuCitoyen}">
+        
+        <td th:text="${demande.date}"></td> <!-- Assurez-vous que la propriété citoyen et nomComplet existent dans votre modèle -->
+        <td th:text="${demande.titre}"></td>
+        <td th:text="${demande.etat}"></td>
+        <td th:text="${demande.raison}"></td>
+        <td>
+            <a th:href="@{'/detailsDemandeSignatureconformer/' + ${demande.id}}" class="btn btn-primary">Détails</a>
+        </td>
+    </tr>
+</tbody>
+        </table>
+      </div>
+
+
+    </div>
+  </div>
+    <!-- end tableau des demandes de documents-->
+
+
+ </section>
+
+  </main><!-- End #main -->
+  
+  
+
+     
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script th:src="@{/css/tableaudebord/vendor/apexcharts/apexcharts.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/chart.js/chart.umd.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/echarts/echarts.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/quill/quill.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/simple-datatables/simple-datatables.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/tinymce/tinymce.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/php-email-form/validate.js}"></script>
+
+<!-- Template Main JS File -->
+<script th:src="@{/css/tableaudebord/js/main.js}"></script>
+
+
+</body>
+
+</html>

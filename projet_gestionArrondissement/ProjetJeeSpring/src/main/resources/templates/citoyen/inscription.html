@@ -1,0 +1,76 @@
+
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/Login/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/Login/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/Login/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Login/css/style.css">
+<title>Inscription</title>
+
+<body>
+<div class="d-lg-flex half">
+    <div class="bg order-1 order-md-2" style="background-image: url('css/Login/images/inscrire.jpg');"></div>
+    <div class="contents order-2 order-md-1">
+        <div class="container bg-white">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-14">
+					<div class="d-flex justify-content-center align-items-center mb-3">
+                                <h1 class="text-center custom-blue">Inscription</h1>
+                            </div>
+                    <form th:action="@{/saveDemandeInscription}" method="post" class="col-md-12">
+                        <div class="border-right bg-white p-5">
+							  
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Nom complet" value="" name="nomComplet" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control" placeholder="date naissance " value="" name="dateNaiss" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Numéro de télèphone" value="" name="tel" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Adresse" value="" name="adresse" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Carte d'identité nationale" value="" name="cin" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Email" value="" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="sexe" value="" name="sexe" required>
+                                </div>
+                                <div class="col-md-6">
+                                <input type="file" class="form-control-file" id="photoInput" accept="image/*" name="photo">
+                                  </div>
+                            </div>
+                            <div class="mt-5 text-center">
+                                <button class="btn btn-primary profile-button" type="submit">S'inscrire</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

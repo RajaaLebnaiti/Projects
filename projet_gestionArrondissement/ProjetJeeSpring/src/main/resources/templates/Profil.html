@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/DemandeDocuments/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/DemandeDocuments/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/DemandeDocuments/css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="css/DemandeDocuments/css/style.css">
+
+
+
+<!-- Vendor CSS Files -->
+<link th:href="@{css/tableaudebord/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/boxicons/css/boxicons.min.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/quill/quill.snow.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/quill/quill.bubble.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/remixicon/remixicon.css}" rel="stylesheet">
+<link th:href="@{css/tableaudebord/vendor/simple-datatables/style.css}" rel="stylesheet">
+
+
+  <!-- Template Main CSS File -->
+<link th:href="@{css/tableaudebord/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+
+<link th:href="@{css/tableaudebord/css/style.css}" rel="stylesheet">
+
+
+    <title>Profil Fonctionnaire</title>
+    <style>
+		
+		
+		#container{
+			margin-left:270px;
+			margin-top:30px;
+			background: #0d42ff;
+		}
+		.form-control:focus {
+		    box-shadow: none;
+		    border-color:#0e1d34;
+		}
+		
+		.profile-button {
+		    background: #0d42ff;
+		    box-shadow: none;
+		    border: none;
+		}
+		
+		.profile-button:hover {
+		    background: #0e1d34;
+		}
+		
+		.profile-button:focus {
+		    background: #0d42ff;
+		    box-shadow: none;
+		}
+		
+		.profile-button:active {
+		    background: #0d42ff;
+		    box-shadow: none;
+		}
+		
+		.back:hover {
+		    color: #0d42ff;
+		    cursor: pointer;
+		}
+		
+		.labels {
+		    font-size: 15px;
+		    color: #0d42ff;
+		    font-weight: bold;
+		}
+	
+		
+	</style>
+  </head>
+  <body>
+   <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index" class="logo d-flex align-items-center">
+        
+        <span class="d-none d-lg-block">Idaraty</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+
+
+<nav class="header-nav ms-auto">
+    
+    
+    <!-- Image de déconnexion -->
+    <a th:href="@{/Login}" title="Déconnexion">
+        <img th:src="@{/img/logout.png}" alt="Déconnexion">
+                
+
+    </a>
+</nav><!-- End Icons Navigation -->
+
+
+
+
+  </header><!-- End Header -->
+
+
+   
+
+  
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index" class="logo d-flex align-items-center">
+        
+        <span class="d-none d-lg-block">Idaraty</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+
+
+<nav class="header-nav ms-auto">
+    
+    
+    <!-- Image de déconnexion -->
+    <a th:href="@{/Login}" title="Déconnexion">
+        <img th:src="@{/img/logout.png}" alt="Déconnexion">
+                
+
+    </a>
+</nav><!-- End Icons Navigation -->
+
+
+
+
+  </header><!-- End Header -->
+
+
+   
+
+  
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="/TableauDeBordFonctionnaire">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Demandes de documents</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="DemandeDocuments">
+              <i class="bi bi-circle"></i><span>Traitement des demandes</span>
+            </a>
+          </li>
+         
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>Signature de documents</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="DemandeSignatures">
+              <i class="bi bi-circle"></i><span>Documents à signés</span>
+            </a>
+          </li>
+          <li>
+            <a href="DemandeSignaturesConformes">
+              <i class="bi bi-circle"></i><span>Documents conformes</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Forms Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Réclamations</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="reclamations">
+              <i class="bi bi-circle"></i><span>Liste des réclamations</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+      
+      
+      <!-- nessrine-->
+     
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-gem"></i><span>Citoyens</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="listdesCitoyen">
+              <i class="bi bi-circle"></i><span>Liste des citoyens</span>
+            </a>
+          </li>
+          <li>
+            <a th:href="@{/Demande_inscription}">
+              <i class="bi bi-circle"></i><span>Liste des demandes d'inscription</span>
+            </a>
+          </li>
+          <li>
+            <a th:href="@{/demandeModification}">
+              <i class="bi bi-circle"></i><span>Liste des demandes de modifications</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Icons Nav -->
+      
+      <!-- nessrine -->
+
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="Profil">
+          <i class="bi bi-person"></i>
+          <span>Modifier Profil</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+     
+
+
+  </aside><!-- End Sidebar-->
+ <!-- Profil -->
+<form th:action="@{/Profil}" method="post" th:object="${fonctionnaire}" enctype="multipart/form-data">
+	<div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-center">Modification du profil</h4>
+                </div>
+    <div id="container" class="container rounded bg-white mt-5 mb-5">
+        <div class="col-md-6 offset-md-3">
+           
+
+
+            <div class="p-3 py-5">
+                
+                <input type="hidden" th:field="*{id}" />
+                <!-- image -->
+                
+				<!-- Ancienne Photo -->
+
+		<div class="form-group row">
+		    <div class="col-sm-9 circular-image">
+		        <img th:if="${fonctionnaire.photo != null}" th:src="@{'data:image/png;base64,' + ${base64PhotoFonctionnaire}}" class="img-fluid" alt="Photo du Fonctionnaire">
+		    </div>
+		</div>
+
+							
+				<!-- Nouvelle Photo -->
+				<!-- Nouvelle Photo -->
+
+
+                <!-- image-->
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Nom Complet</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" th:field="*{nomComplet}" placeholder="Nom Prenom">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Télèphone</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" th:field="*{tel}" placeholder="Numéro de télèphone">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">CIN</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" th:field="*{cin}" placeholder="Carte d'identité nationale">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" th:field="*{email}" placeholder="Email">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" for="sexe">Sexe</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="sexe" name="sexe" th:field="*{sexe}">
+                            <option value="Femme">Femme</option>
+                            <option value="Homme">Homme</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Mot de passe</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" th:field="*{password}" placeholder="*********" value="">
+                    </div>
+                </div>
+
+                <input type="hidden" th:field="*{id}" />
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label" for="fonction">Fonction</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="fonction" name="fonction" onchange="checkAutreFonction(this)" th:field="*{fonction}">
+                            <option value="agent">Agent</option>
+                            <option value="Président">Président</option>
+                            <option value="Vice-président">Vice-président</option>
+                            <option value="Secrétaire">Secrétaire</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row" id="autreFonctionContainer" style="display: none;">
+                    <label class="col-sm-3 col-form-label" for="autreFonction">Autre Fonction</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="autreFonction" name="autreFonction" placeholder="Entrez votre fonction">
+                    </div>
+                </div>
+
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" type="submit">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- end profil -->
+
+  
+  
+   <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+	  
+    <div class="copyright">
+      &copy; Copyright <strong><span>Idaraty</span></strong>. Tous droits réservés
+    </div>
+    <div class="credits">
+      
+	<a href="#">2023/2024</a> 
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<script>
+  function checkAutreFonction(select) {
+    var autreFonctionContainer = document.getElementById('autreFonctionContainer');
+    var autreFonctionInput = document.getElementById('autreFonction');
+
+    if (select.value === 'Autre') {
+      autreFonctionContainer.style.display = 'block';
+      autreFonctionInput.required = true;
+    } else {
+      autreFonctionContainer.style.display = 'none';
+      autreFonctionInput.required = false;
+    }
+  }
+</script>
+<!-- Vendor JS Files -->
+<script th:src="@{/css/tableaudebord/vendor/apexcharts/apexcharts.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/chart.js/chart.umd.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/echarts/echarts.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/quill/quill.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/simple-datatables/simple-datatables.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/tinymce/tinymce.min.js}"></script>
+<script th:src="@{/css/tableaudebord/vendor/php-email-form/validate.js}"></script>
+
+<!-- Template Main JS File -->
+<script th:src="@{/css/tableaudebord/js/main.js}"></script>
+  </body>
+</html>

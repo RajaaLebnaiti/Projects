@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la demande de documents</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+
+        div {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: center; /* Centrer les boutons */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 12px; /* Taille minimisée */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px; /* Taille de police minimisée */
+            margin-bottom: 20px;
+        }
+        
+
+        button.confirmer {
+            background-color: #4caf50;
+            color: #fff;
+            margin-right: 10px; /* Marge entre les boutons */
+        }
+
+        button.confirmer:hover {
+            background-color: #45a049;
+        }
+
+        button.rejeter {
+            background-color: #d9534f;
+            color: #fff;
+        }
+
+        button.rejeter:hover {
+            background-color: #c9302c;
+        }
+
+        a.back-button {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #337ab7;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+        a.back-button:hover {
+            background-color: #286090;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Affichez les détails de la demande de documents -->
+    <div>
+        <h2 th:text="${demande.id}">ID</h2>
+        <p th:text="${demande.citoyen.nomComplet}">Nom Complet</p>
+        <p th:text="${demande.motif}">Motif</p>
+        <p th:text="${demande.etat}">État</p>
+        <p th:text="${demande.raison}">Raison</p>
+
+        <form th:action="@{/confirmerDemande}" method="post">
+    <input type="hidden" name="demandeId" th:value="${demande.id}" />
+    <button type="submit" class="confirmer">Confirmer</button>
+</form>
+
+<form th:action="@{/rejeterDemande}" method="post">
+    <input type="hidden" name="demandeId" th:value="${demande.id}" />
+    <button type="submit" class="rejeter">Rejeter</button>
+    <label for="raison">Raison du rejet :</label>
+    <input type="text" name="raison" required/>
+</form>
+
+
+        <!-- Ajoutez un lien ou un bouton pour revenir à la liste des demandes de documents -->
+        <a th:href="@{/DemandeDocuments}" class="back-button">Retour</a>
+    </div>
+
+</body>
+
+</html>
